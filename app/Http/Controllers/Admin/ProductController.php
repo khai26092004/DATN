@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->latest()->paginate(10);
+        $products = Product::with('categories')->latest()->paginate(10);
         return view('admin.products.index', compact('products'));
     }
 
@@ -27,13 +27,14 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:products,name',
-            'category_id' => 'required|exists:categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:categories,id',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'stock_quantity' => 'required|integer|min:0'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['categories', 'image']); // Exclude categories from direct assignment
         $data['slug'] = Str::slug($request->name);
 
         if ($request->hasFile('image')) {
@@ -41,7 +42,8 @@ class ProductController extends Controller
             $data['image'] = $imagePath;
         }
 
-        Product::create($data);
+        $product = Product::create($data);
+        $product->categories()->attach($request->categories);
 
         return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công');
     }
@@ -56,13 +58,14 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:products,name,' . $product->id,
-            'category_id' => 'required|exists:categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:categories,id',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'stock_quantity' => 'required|integer|min:0'
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['categories', 'image']);
         $data['slug'] = Str::slug($request->name);
 
         if ($request->hasFile('image')) {
@@ -75,6 +78,7 @@ class ProductController extends Controller
         }
 
         $product->update($data);
+        $product->categories()->sync($request->categories);
 
         return redirect()->route('admin.products.index')->with('success', 'Cập nhật sản phẩm thành công');
     }

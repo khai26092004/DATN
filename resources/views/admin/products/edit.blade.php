@@ -20,11 +20,10 @@
             </div>
             <div class="col-md-4">
                 <div class="mb-3">
-                    <label class="form-label">Danh mục</label>
-                    <select name="category_id" class="form-control" required>
-                        <option value="">Chọn danh mục</option>
+                    <label class="form-label">Danh mục (Nhấn Ctrl để chọn nhiều)</label>
+                    <select name="categories[]" class="form-control" multiple required style="height: 150px;">
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" {{ in_array($category->id, old('categories', $product->categories->pluck('id')->toArray())) ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
                         @endforeach

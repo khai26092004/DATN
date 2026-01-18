@@ -13,7 +13,7 @@ class ProductController extends Controller
         $query = Product::query();
 
         if ($request->has('category')) {
-            $query->whereHas('category', function ($q) use ($request) {
+            $query->whereHas('categories', function ($q) use ($request) {
                 $q->where('slug', $request->category);
             });
         }
@@ -30,7 +30,9 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $relatedProducts = Product::where('category_id', $product->category_id)
+        $relatedProducts = Product::whereHas('categories', function ($q) use ($product) {
+            $q->whereIn('categories.id', $product->categories->pluck('id'));
+        })
             ->where('id', '!=', $product->id)
             ->take(4)
             ->get();

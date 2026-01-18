@@ -27,9 +27,12 @@
                     </nav>
 
                     <h1 class="fw-bold display-5 mb-2">{{ $product->name }}</h1>
-                    <p class="text-muted mb-4 fs-5">Danh mục: <a
-                            href="{{ route('products.index', ['category' => $product->category->slug]) }}"
-                            class="text-success text-decoration-none fw-bold">{{ $product->category->name }}</a></p>
+                    <p class="text-muted mb-4 fs-5">Danh mục:
+                        @foreach($product->categories as $category)
+                            <a href="{{ route('products.index', ['category' => $category->slug]) }}"
+                                class="text-success text-decoration-none fw-bold">{{ $category->name }}</a>{{ !$loop->last ? ', ' : '' }}
+                        @endforeach
+                    </p>
 
                     <h2 class="text-success fw-bold mb-4 display-6">{{ number_format($product->price) }} VNĐ</h2>
 

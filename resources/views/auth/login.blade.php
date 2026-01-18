@@ -35,10 +35,10 @@
                             </div>
                             <div class="d-flex justify-content-between mb-4">
                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember">
                                     <label class="form-check-label small" for="remember">Ghi nhớ đăng nhập</label>
                                 </div>
-                                <a href="#"
-                                    class="text-decoration-none small text-success fw-bold">Quên mật khẩu?</a>
+                                <a href="#" class="text-decoration-none small text-success fw-bold">Quên mật khẩu?</a>
                             </div>
                             <div class="d-grid mb-4">
                                 <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm">Đăng
