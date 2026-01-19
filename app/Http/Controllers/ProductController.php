@@ -37,6 +37,8 @@ class ProductController extends Controller
             ->take(4)
             ->get();
 
+        $product->load(['reviews.user']); // Eager load reviews
+
         return view('products.show', compact('product', 'relatedProducts'));
     }
 }

@@ -3,7 +3,15 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Quản lý Sản phẩm</h2>
-        <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Thêm mới</a>
+        <div class="d-flex">
+            <form action="{{ route('admin.products.index') }}" method="GET" class="d-flex me-2">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+                </div>
+            </form>
+            <a href="{{ route('admin.products.create') }}" class="btn btn-primary d-flex align-items-center">Thêm mới</a>
+        </div>
     </div>
 
     <table class="table table-bordered table-striped">
@@ -47,5 +55,5 @@
         </tbody>
     </table>
 
-    {{ $products->links() }}
+    {{ $products->withQueryString()->links() }}
 @endsection

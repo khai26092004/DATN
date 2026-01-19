@@ -18,7 +18,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">PlantShop</a>
+            <a class="navbar-brand" href="/">KPlantHouse</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -84,7 +84,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5><i class="fas fa-leaf me-2"></i>PlantShop</h5>
+                    <h5><i class="fas fa-leaf me-2"></i>KPlantHouse</h5>
                     <p class="text-white-50">Mang hơi thở thiên nhiên vào không gian sống của bạn. Chúng tôi cam kết
                         cung cấp những chậu cây khỏe mạnh nhất với dịch vụ tận tâm.</p>
                     <div class="social-icons mt-3">
@@ -112,7 +112,7 @@
                         <li class="mb-3"><i class="fas fa-map-marker-alt me-2 text-warning"></i> 123 Đường Cây Xanh, Hà
                             Nội</li>
                         <li class="mb-3"><i class="fas fa-phone me-2 text-warning"></i> 0912 345 678</li>
-                        <li class="mb-3"><i class="fas fa-envelope me-2 text-warning"></i> contact@plantshop.vn</li>
+                        <li class="mb-3"><i class="fas fa-envelope me-2 text-warning"></i> contact@kplanthouse.vn</li>
                         <li><i class="fas fa-clock me-2 text-warning"></i> 8:00 - 20:00 (Hàng ngày)</li>
                     </ul>
                 </div>
@@ -135,7 +135,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 text-white-50">© 2025 PlantShop. All rights reserved.</p>
+                    <p class="mb-0 text-white-50">© 2025 KPlantHouse. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
 

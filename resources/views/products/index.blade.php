@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Danh sách sản phẩm - PlantShop')
+@section('title', 'Danh sách sản phẩm - KPlantHouse')
 
 @section('content')
 <div class="row">
