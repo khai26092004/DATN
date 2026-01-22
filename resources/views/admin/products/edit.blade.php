@@ -13,9 +13,27 @@
                     <label class="form-label">Tên sản phẩm</label>
                     <input type="text" name="name" class="form-control" value="{{ $product->name }}" required>
                 </div>
+
                 <div class="mb-3">
-                    <label class="form-label">Mô tả</label>
-                    <textarea name="description" class="form-control" rows="5">{{ $product->description }}</textarea>
+                    <label class="form-label">Đặc điểm</label>
+                    <textarea name="characteristics" class="form-control"
+                        rows="3">{{ $product->characteristics }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ánh sáng</label>
+                    <textarea name="light" class="form-control" rows="2">{{ $product->light }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tưới nước</label>
+                    <textarea name="watering" class="form-control" rows="2">{{ $product->watering }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Công dụng</label>
+                    <textarea name="usage" class="form-control" rows="3">{{ $product->usage }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ý nghĩa</label>
+                    <textarea name="meaning" class="form-control" rows="3">{{ $product->meaning }}</textarea>
                 </div>
             </div>
             <div class="col-md-4">

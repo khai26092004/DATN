@@ -36,9 +36,47 @@
 
                     <h2 class="text-success fw-bold mb-4 display-6">{{ number_format($product->price) }} VNĐ</h2>
 
+
+
+                    @if($product->characteristics || $product->light || $product->watering || $product->usage || $product->meaning)
                     <div class="mb-4">
-                        <p class="lead" style="font-size: 1rem; color: #555;">{{ $product->description }}</p>
+                        <h5 class="fw-bold text-success mb-3"><i class="fas fa-info-circle me-2"></i>Chi tiết sản phẩm</h5>
+                        <table class="table table-bordered table-sm">
+                            <tbody>
+                                @if($product->characteristics)
+                                <tr>
+                                    <th class="bg-light px-3 py-2" style="width: 150px;">Đặc điểm</th>
+                                    <td class="px-3 py-2">{!! nl2br(e($product->characteristics)) !!}</td>
+                                </tr>
+                                @endif
+                                @if($product->light)
+                                <tr>
+                                    <th class="bg-light px-3 py-2">Ánh sáng</th>
+                                    <td class="px-3 py-2">{!! nl2br(e($product->light)) !!}</td>
+                                </tr>
+                                @endif
+                                @if($product->watering)
+                                <tr>
+                                    <th class="bg-light px-3 py-2">Tưới nước</th>
+                                    <td class="px-3 py-2">{!! nl2br(e($product->watering)) !!}</td>
+                                </tr>
+                                @endif
+                                @if($product->usage)
+                                <tr>
+                                    <th class="bg-light px-3 py-2">Công dụng</th>
+                                    <td class="px-3 py-2">{!! nl2br(e($product->usage)) !!}</td>
+                                </tr>
+                                @endif
+                                @if($product->meaning)
+                                <tr>
+                                    <th class="bg-light px-3 py-2">Ý nghĩa</th>
+                                    <td class="px-3 py-2">{!! nl2br(e($product->meaning)) !!}</td>
+                                </tr>
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
+                    @endif
 
                     <hr class="my-4 opacity-10">
 

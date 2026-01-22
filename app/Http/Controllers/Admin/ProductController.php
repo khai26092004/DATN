@@ -17,9 +17,9 @@ class ProductController extends Controller
 
         if ($request->has('search')) {
             $search = $request->input('search');
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%");
+                    ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
@@ -41,7 +41,12 @@ class ProductController extends Controller
             'categories.*' => 'exists:categories,id',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'stock_quantity' => 'required|integer|min:0'
+            'stock_quantity' => 'required|integer|min:0',
+            'characteristics' => 'nullable|string',
+            'light' => 'nullable|string',
+            'watering' => 'nullable|string',
+            'usage' => 'nullable|string',
+            'meaning' => 'nullable|string',
         ]);
 
         $data = $request->except(['categories', 'image']); // Exclude categories from direct assignment
@@ -72,7 +77,12 @@ class ProductController extends Controller
             'categories.*' => 'exists:categories,id',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'stock_quantity' => 'required|integer|min:0'
+            'stock_quantity' => 'required|integer|min:0',
+            'characteristics' => 'nullable|string',
+            'light' => 'nullable|string',
+            'watering' => 'nullable|string',
+            'usage' => 'nullable|string',
+            'meaning' => 'nullable|string',
         ]);
 
         $data = $request->except(['categories', 'image']);
